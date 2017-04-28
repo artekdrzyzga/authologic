@@ -1,0 +1,81 @@
+  
+
+<h1>Users List</h1>
+<hr>
+
+
+<div class="row">
+  <div class="col-md-2"><strong>E-mail</strong></div>
+  <div class="col-md-1"><strong>Name</strong></div>
+  <div class="col-md-1"><strong>Surname</strong></div>
+  <div class="col-md-2"><strong>Company</strong></div>
+  <div class="col-md-1"><strong>City</strong></div>
+  <div class="col-md-2"><strong>Street</strong></div>
+  <div class="col-md-1"><strong>Post code</strong></div>
+  <div class="col-md-1"><strong>Phone number</strong></div>
+  <div class="col-md-1"><strong>Last login at</strong></div>
+ </div>
+
+<hr>
+
+
+ <% @users.each  do |us| %>
+
+  <div class="row">
+    <div class="col-md-2">
+      <%= us.email %>
+    </div>  
+    
+    <div class="col-md-1">
+      <%= us.name %>
+    </div>  
+    
+    <div class="col-md-1">
+      <%= us.surname %>
+    </div>  
+    
+    <div class="col-md-2">
+      <%= us.company %>
+    </div>  
+    
+    <div class="col-md-1">
+      <%= us.city %>
+    </div>  
+    
+    <div class="col-md-2">
+      <%= us.street %>
+    </div>  
+    
+    <div class="col-md-1">
+      <%= us.postcode %>
+    </div>  
+    
+    <div class="col-md-1">
+      <%= us.phonenumber %>
+    </div>  
+    
+    <div class="col-md-1">
+      <%= us.current_login_at %>
+    </div>  
+    
+  
+  </div>  
+<hr>
+
+ <% end %>
+
+</div>
+
+
+
+
+
+<div class="jumbotron">
+  <div class="container">
+    <p>
+      <%= link_to new_user_path, class: 'btn btn-primary btn-lg' do %>
+        Sign Up &raquo;
+      <% end %>
+
+    </p>
+  </div>

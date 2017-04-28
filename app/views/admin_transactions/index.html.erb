@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-1"><strong>transaction number</strong></div>
+  <div class="col-md-2"><strong>creation date</strong></div>
+  <div class="col-md-2"><strong>status</strong></div>
+  <div class="col-md-2"><strong>e-mail</strong></div>
+  <div class="col-md-1"><strong>name</strong></div>
+  <div class="col-md-2"><strong>actions</strong></div>
+</div>
+<hr>
+
+<% @tranheads.each  do |tranhead| %>
+  <div class="row">
+    <div class="col-md-1">
+      <%= tranhead.id %>
+    </div>
+    <div class="col-md-2">
+      <%= tranhead.created_at %>
+    </div>
+    <div class="col-md-2">
+      <%= tranhead.status %> 
+    </div>
+    <div class="col-md-2">
+      <%= tranhead.user.email %>
+    </div>
+    <div class="col-md-1">
+      <%= tranhead.user.name %>
+    </div>
+    <div class="col-md-1">
+      <%= link_to("details ...", admin_transaction_admin_transactions_elements_path(tranhead)) %>
+    </div>
+
+    <% if (Tranhead::STATUSES.key(tranhead.status) == 2) %>
+      <div class="col-md-2">
+        <%= link_to "Sent transaction", sent_admin_transaction_path(tranhead.id) %>
+      </div>
+    <% end %>
+    <hr>
+  </div>
+<% end %>
